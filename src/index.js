@@ -20,14 +20,23 @@ function App () {
   const encounterWildPokemon = () => {
     axios.get('https://pokeapi.co/api/v2/pokemon/' + pokeId())
       .then(res => {
-        console.log(res.data)
         setWildPokemon(res.data)
       })
   }
 
   return(
     <div className="app-wrapper">
-      hello, world
+      <header>
+        <h1 className="title">React Hooks</h1>
+        <h3 className="subtitle">With Pokemon</h3>
+      </header>
+
+      <section className="wild-pokemon">
+        <h2>Wild Encounter</h2>
+        <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + wildPokemon.id + ".png"} className="sprite"></img>
+        <h3>{wildPokemon.name}</h3>
+        <button className="catch-btn">CATCH</button>
+      </section>
     </div>
   )
 }
